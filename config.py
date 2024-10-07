@@ -9,6 +9,7 @@ class TrainingConfig:
     output_domain: str = None
     img_size: int = 256
     in_channels: int = 1
+    out_channels: int = 1
     train_batch_size: int = 4
     eval_batch_size: int = 16  # how many images to sample during evaluation
     num_epochs: int = 600

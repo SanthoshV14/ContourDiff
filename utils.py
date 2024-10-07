@@ -63,7 +63,8 @@ def add_contours_to_noise(noisy_images, data_batch, config, device, num_copy=1, 
         if translation:
             contour = data_batch
         else:
-            contour = data_batch["contours"]
+            # contour = data_batch["contours"]
+            contour = data_batch["ct_contours"]
 
         if num_copy > 1:
             contour = torch.cat([contour] * num_copy, dim=0)
