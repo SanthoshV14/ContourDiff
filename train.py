@@ -222,13 +222,15 @@ if __name__ == "__main__":
     # Parse args:
     parser = argparse.ArgumentParser()
     
+    parser.add_argument('--data_directory', type=str, required=True, help="directory of the dataset")
+    parser.add_argument('--num_epochs', type=int, required=True, help="number of epochs for training") # parser.add_argument('--num_epochs', type=int, default=400, help="number of epochs for training")
+
     parser.add_argument('--dataset', type=str, default='ctcbct', help="name of the dataset")
     parser.add_argument('--output_dir', type=str, default='./output', help="directory to save the output samples and checkpoints. If not specified, it will use the default name as ContourDiff-{input_domain}-{output_domain}-{model_type}-{dataset}")
     parser.add_argument('--model_type', type=str, default="ddpm", choices=["ddpm", "ddim"], help="type of diffusion models (ddpm or ddim)")
-    parser.add_argument('--img_size', type=int, default=512, help="size of the input images")
+    parser.add_argument('--img_size', type=int, default=256, help="size of the input images")
     parser.add_argument('--train_batch_size', type=int, default=4, help="training batch size")##
     parser.add_argument('--eval_batch_size', type=int, default=16, help="validation batch size")
-    parser.add_argument('--num_epochs', type=int, default=400, help="number of epochs for training")
     parser.add_argument('--noise_step', type=int, default=1000, help="maximum number of steps to add noise during training")
     parser.add_argument('--learning_rate', type=float, default=1e-4, help="initial learning rate used for training")
     parser.add_argument('--lr_warmup_steps', type=int, default=500, help="number of steps to warmup the training")
@@ -246,7 +248,6 @@ if __name__ == "__main__":
     parser.add_argument('--input_domain', type=str, default='CBCT', help="name of the input domain (e.g. CT)")
     parser.add_argument('--output_domain', type=str, default='CT', help="name of the output domain (e.g. MRI)")
     
-    parser.add_argument('--data_directory', type=str, required=True, help="directory of the dataset")
     # parser.add_argument('--input_domain_img_folder', type=str, required=True, help="name of the folder containing images from input domain (e.g. CT)")
     # parser.add_argument('--input_domain_contour_folder', type=str, required=True, help="name of the folder containing contours from input domain (e.g. CT)")
     # parser.add_argument('--output_domain_img_folder', type=str, required=True, help="name of the folder containing images from output domain (e.g. MRI)")

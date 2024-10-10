@@ -170,11 +170,11 @@ def evaluate(config, epoch, pipeline, noise_step=1000, conditional=False, contou
     
     if conditional:
         # Save the conditioned images
-        img_ori = data_batch["images"]
+        img_ori = data_batch["ct"]
         save_image(img_ori, f"{test_dir}/{epoch:04d}_ori.png", normalize=True, nrow=cols)
     
     if contour:
-        img_ori = data_batch["images"]
-        contour_ori = data_batch["contours"]
+        img_ori = data_batch["ct"]
+        contour_ori = data_batch["ct_contours"]
         save_image(img_ori, f"{test_dir}/{epoch:04d}_ori.png", normalize=True, nrow=cols)
         save_image(contour_ori, f"{test_dir}/{epoch:04d}_contour.png", normalize=True, nrow=cols)
